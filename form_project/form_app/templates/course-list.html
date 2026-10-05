@@ -1,0 +1,40 @@
+{% extends 'master/base.html' %}
+
+{% block body %}
+  <h1>Course List</h1>
+
+  <a href="{% url 'add_course' %}" class="btn btn-primary">Course List</a>
+
+  <table class="table table_striped">
+    <thead>
+      <tr>
+        <th>SL</th>
+        <th>Course_name</th>
+        <th>Description</th>
+        <th>Category</th>
+        <th>Course image</th>
+        <th>Course Fee</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      {% for data in course_data %}
+        <tr>
+          <td>{{ forloop.counter }}</td>
+          <td>{{ data.course_name }}</td>
+          <td>{{ data.description }}</td>
+          <td>{{ data.category }}</td>
+          <td>
+            <img src="{{ data.course_image.url }}" width="50px" alt="" />
+          </td>
+          <td>{{ data.course_fee }}</td>
+          <td>
+            <a href="{% url 'update_course' data.id %}" style="text-decoration: none;">Course List</a>
+
+          </td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}

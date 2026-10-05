@@ -1,0 +1,20 @@
+{% extends 'master/base.html' %}
+
+{% block body %}
+
+<h1>Update Course Page</h1>
+
+
+<form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{form_data.as_p}}
+
+
+    <button type="submit" class="btn btn-primary" >Update Course</button>
+
+
+
+</form>
+    
+{% endblock body %}
+    
