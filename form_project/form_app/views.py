@@ -93,11 +93,7 @@ def update_course(request, u_id):
     form_data = CourseForm(instance=course_data)
 
     if request.method == 'POST':
-        form_data = CourseForm(
-            request.POST,
-            request.FILES,
-            instance=course_data
-        )
+        form_data = CourseForm(request.POST, request.FILES, instance=course_data )
 
         if form_data.is_valid():
             form_data.save()
